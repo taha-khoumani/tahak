@@ -1,27 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer components {
+  .btn {
+    border: solid;
+    @apply flex items-center justify-center border-purple border-2;
+    border-radius: 100px;
+    padding: 12px 24px;
+    @apply bg-purple;
+  }
+  .btn > * {
+    @apply text-white2 transition-colors;
+  }
+  .btn:hover {
+    @apply bg-opacity-0;
+  }
+  .btn:hover > * {
+    @apply text-purple transition-colors;
+  }
+  .mini-button-text {
+    @apply font-bold text-sm;
+  }
+  .nav-text {
+    @apply font-medium text-lg cursor-pointer text-black hover:text-opacity-50 transition;
+  }
+  .nav-text-2-Parent {
+    @apply w-full left-split text-center;
+  }
+  .nav-text-2-Child {
+    @apply font-medium text-lg cursor-pointer text-black hover:text-opacity-50 transition;
+  }
+  .bottom-split {
+    @apply border-b border-black border-opacity-25;
+  }
+  .left-split {
+    @apply border-l border-black border-opacity-25;
+  }
+  .right-split {
+    @apply border-r border-black border-opacity-25;
+  }
+  .hero-img {
+    background-image: url("/images/ddd.png");
+    background-size: cover;
+  }
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #FFFEFE;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+#menuParent {
+  height: calc(100vh - 97px);
+  animation-fill-mode: forwards;
+  animation-duration: 200ms;
+}
+@keyframes open-menuParent {
+  0% {
+    background-color: rgba(17, 28, 55, 0);
+  }
+  100% {
+    background-color: rgba(17, 28, 55, 0.75);
+  }
+}
+@keyframes close-menuParent {
+  0% {
+    background-color: rgba(17, 28, 55, 0.75);
+  }
+  100% {
+    background-color: rgba(17, 28, 55, 0);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+#menuChild {
+  animation-fill-mode: forwards;
+  animation-duration: 300ms;
+}
+@keyframes open-menuChild {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 257px;
+  }
+}
+@keyframes close-menuChild {
+  0% {
+    height: 257px;
+  }
+  100% {
+    height: 0px;
+  }
 }
