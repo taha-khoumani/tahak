@@ -46,14 +46,16 @@
             @apply border-r border-black border-opacity-25;
         }
         .hero-img{
-            background-image: url('/images/ddd.png');
-            background-size:cover;
+            background-image: url('/programing.png');
+            background-size:contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
     }
 
 //
 
-// GENERAL
+// GENERAL  
     body{
         font-family: 'Poppins', sans-serif;
         background-color: #FFFEFE;
