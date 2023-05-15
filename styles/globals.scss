@@ -51,6 +51,12 @@
             background-repeat: no-repeat;
             background-position: center;
         }
+        .myname{
+            background-clip: text;
+            -webkit-background-clip: text; /* For Safari support */
+            color: transparent;
+            background-image: linear-gradient(125.65deg, #603ADE 15.38%, #3AC1DE 83.58%);
+        }
     }
 
 //
