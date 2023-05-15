@@ -31,7 +31,7 @@ export default function Navbar({}: Props) {
 
   return (
     <div className=" relative">
-      <div className="mx-4 mt-6 flex items-center justify-between pb-6 bottom-split sm:border-none sm:pb-3 lg:border-solid lg:pb-7 lg:mt-7 lg:mx-24">
+      <div className="mt-6 flex items-center justify-between pb-6 bottom-split mx-4 sm:mx-16 lg:mx-24 sm:border-none sm:pb-3 lg:border-solid lg:pb-7 lg:mt-7">
         {/* only mobile */}
           <i 
             className="fa-bars fa-solid text-black cursor-pointer hover:text-opacity-60 transition-colors text-4xl sm:hidden"
@@ -76,7 +76,7 @@ export default function Navbar({}: Props) {
           </div>
         </div>
       {/* tablet and desktop */}
-        <div className="hidden sm:flex justify-around items-center py-4 mx-6 lg:hidden">
+        <div className="hidden sm:flex justify-around items-center py-4 sm:mx-16 lg:hidden">
           <div className="nav-text-2-Parent"><a className="nav-text-2-Child">About</a></div>
           <div className="nav-text-2-Parent"><a className="nav-text-2-Child">Tech Stack</a></div>
           <div className="nav-text-2-Parent"><a className="nav-text-2-Child">Contact</a></div>
