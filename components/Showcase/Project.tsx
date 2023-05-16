@@ -18,7 +18,7 @@ type Props = {
 }
 
 export default function Project({projectData}: Props) {
-  const [device,setDevice] = useState<'mobile' | 'tablet' | 'laptop'>('tablet')
+  const [device,setDevice] = useState<'mobile' | 'tablet' | 'laptop'>('laptop')
   const {
     id,
     backgroundColor,
@@ -67,16 +67,66 @@ export default function Project({projectData}: Props) {
   useEffect(()=>{
     const parent = document.querySelector("#devicesContainer") as HTMLElement
 
+    //
+    // const currentPosition = window.getComputedStyle(parent).left
+    // const winWidth = parent.innerWidth
+
+    // let initialPosition;
+    // if(currentPosition === "0px"){
+    //   initialPosition = "Planned"
+    // } else if(currentPosition === `-${winWidth}px`){
+    //   initialPosition = "In-Progress"
+    // } else {
+    //   initialPosition = "Live"
+    // }
+
+
+    // let to;
+    // if(direction === "r"){
+    //   switch (initialPosition){
+    //     case "Planned": 
+    //       to = ""
+    //     break;
+    //     case "In-Progress":
+    //       to = "one"
+    //     break;
+    //     case "Live":
+    //       to = "two"
+    //     break;
+    //   }
+    // }
+    // else{
+    //   switch (initialPosition){
+    //     case "Planned": 
+    //       to = "two"
+    //     break;
+    //     case "In-Progress":
+    //       to = "three"
+    //     break;
+    //     case "Live":
+    //       to = ""
+    //     break;
+    //   }
+    // }
+
+    // navigater.style.left = `${currentPosition}`
+    // navigater.style.animationName = `${to}`
+    //
+
     if(!parent.style) return;
+    const animationDuration = 500
     switch(device){
       case 'laptop':
-        parent.style.right = '100%'
+        parent.style.animationName = 'laptop'
+        setTimeout(()=>parent.style.right ='100%',animationDuration)
         break;
       case 'mobile':
-        parent.style.right = "0"
+        parent.style.animationName = 'mobile'
+        setTimeout(()=>parent.style.right ='0%',animationDuration)
         break;
       case 'tablet':
-        parent.style.right = "200%"
+        parent.style.animationName = 'tablet'
+        setTimeout(()=>parent.style.right ='200%',animationDuration)
         break;
     }
 
