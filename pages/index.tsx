@@ -1,5 +1,7 @@
 import Hero from "@/components/Hero"
 import Navbar from "@/components/Navbar"
+import Separator from "@/components/Separator"
+import Showcase from "@/components/Showcase/Showcase"
 import Head from "next/head"
 
 export default function Home() {
@@ -10,6 +12,8 @@ export default function Home() {
       </Head>
       <Navbar />
       <Hero />
+      <Separator />
+      <Showcase />
     </div>
   )
 }

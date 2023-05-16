@@ -1,4 +1,4 @@
-import logo from "@/images/tahak.png"
+import logo from "@/public/tahak.png"
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 
