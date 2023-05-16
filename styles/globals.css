@@ -128,3 +128,23 @@ body {
     height: 0px;
   }
 }
+
+#devicesContainer {
+  animation-fill-mode: forwards;
+  animation-duration: 200ms;
+}
+@keyframes mobile {
+  100% {
+    right: 0px;
+  }
+}
+@keyframes laptop {
+  100% {
+    right: 100%;
+  }
+}
+@keyframes tablet {
+  100% {
+    right: 200%;
+  }
+}

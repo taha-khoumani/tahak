@@ -144,4 +144,35 @@
         }
     //
 
+    // SHOWCASE
+        #devicesContainer{
+            animation-fill-mode: forwards;
+            animation-duration: 200ms;
+            @keyframes mobile {
+                // 0%{
+                //     right:;
+                // } 
+                100%{
+                    right:0px;
+                }
+            }
+            @keyframes laptop {
+                // 0%{
+                //     right:;
+                // } 
+                100%{
+                    right:100%;
+                }
+            }
+            @keyframes tablet {
+                // 0%{
+                //     right:;
+                // } 
+                100%{
+                    right:200%;
+                }
+            }
+        }
+    // 
+
 // 

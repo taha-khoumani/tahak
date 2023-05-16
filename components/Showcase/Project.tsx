@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // import techIcons from '@/techData'
 
 type Props = {
@@ -18,7 +18,7 @@ type Props = {
 }
 
 export default function Project({projectData}: Props) {
-  const [device,setDevice] = useState<'mobile' | 'tablet' | 'laptop'>('laptop')
+  const [device,setDevice] = useState<'mobile' | 'tablet' | 'laptop'>('tablet')
   const {
     id,
     backgroundColor,
@@ -51,7 +51,10 @@ export default function Project({projectData}: Props) {
 
   const techIcons = techStack.map((tech,index,techs)=>{
     return(
-      <div className={`flex items-center justify-center w-full h-full ${index === techs.length-1 ? '' : 'border-r-2 lg:border-b-2 lg:border-r-0'}`}>
+      <div 
+        className={`flex items-center justify-center w-full h-full ${index === techs.length-1 ? '' : 'border-r-2 lg:border-b-2 lg:border-r-0'}`}
+        key={index}
+        >
         <div 
           style={{backgroundImage:`url(/icons/${tech}.svg)`}}
           className='techIcon w-4 h-4 sm:w-6 sm:h-6'
@@ -60,6 +63,24 @@ export default function Project({projectData}: Props) {
       </div>
     )
   })
+
+  useEffect(()=>{
+    const parent = document.querySelector("#devicesContainer") as HTMLElement
+
+    if(!parent.style) return;
+    switch(device){
+      case 'laptop':
+        parent.style.right = '100%'
+        break;
+      case 'mobile':
+        parent.style.right = "0"
+        break;
+      case 'tablet':
+        parent.style.right = "200%"
+        break;
+    }
+
+  },[device])
 
   return (
     <div 
@@ -76,7 +97,7 @@ export default function Project({projectData}: Props) {
             <div className='flex rounded-full border-2 border-purple p-0.75 items-center w-40 h-10' >
               <i 
                 className="device-icons fa-solid fa-mobile-screen-button" 
-                style={device === 'mobile' ? deviceChosenStyle : {}}
+                style={device === 'mobile' ? deviceChosenStyle : {}}    
                 onClick={()=>onDeviceTogglerClickHandler('mobile')}
               ></i>
               <i 
@@ -93,9 +114,22 @@ export default function Project({projectData}: Props) {
             
             {/* image */}
             <div 
-              className='flex-grow w-full'
-              style={bg}
-            ></div>
+              className='flex-grow w-full overflow-hidden'>
+              <div className='flex relative h-full w-full' id='devicesContainer'>
+                <div 
+                  className='bg-img min-w-full h-full'
+                  style={{backgroundImage:`url(${mobile})`}}
+                ></div>
+                <div 
+                  className='bg-img min-w-full h-full'
+                  style={{backgroundImage:`url(${laptop})`}}
+                ></div>
+                <div 
+                  className='bg-img min-w-full h-full'
+                  style={{backgroundImage:`url(${tablet})`}}
+                ></div>
+              </div>
+            </div>
 
           </div>
 
