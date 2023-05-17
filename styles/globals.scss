@@ -72,11 +72,11 @@
             @apply text-black font-bold text-2xl mb-2 sm:text-4xl sm:mb-4;
         }
         .back-device-icons{
-            @apply text-purple w-full text-center flex justify-center items-center rounded-full h-full cursor-pointer;
+            @apply text-purple w-full text-center flex justify-center items-center rounded-full h-full cursor-pointer hover:-translate-y-0.5 transition;
         }
         .front-device-icons{
             @extend .back-device-icons;
-            @apply min-w-full text-white z-20;
+            @apply min-w-full text-white z-20 hover:translate-y-0;
         }
         .live-github{
             @apply items-center justify-center mx-auto rounded-full font-bold flex gap-3 bg-white2 text-purple py-3 px-6 w-full sm:w-2/3 lg:w-full sm:py-4 sm:px-8 hover:bg-purple hover:text-white2 transition;
@@ -147,7 +147,7 @@
     // SHOWCASE
         #devicesContainer{
             animation-fill-mode: forwards;
-            animation-duration: 450ms;
+            animation-duration: 200ms;
             @keyframes mobile {
                 100%{
                     right:0px;
@@ -169,7 +169,7 @@
     // TOGGLER
         #togglerParent{
             animation-fill-mode: forwards;
-            animation-duration: 300ms;
+            animation-duration: 100ms;
             @keyframes laptopIconP {
                 100%{
                     left:53px;
@@ -191,7 +191,7 @@
         }
         #togglerChild{
             animation-fill-mode: forwards;
-            animation-duration: 300ms;
+            animation-duration: 100ms;
             @keyframes laptopIconC {
                 100%{
                     right:50px;

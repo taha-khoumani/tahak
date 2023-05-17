@@ -20,6 +20,9 @@ module.exports = {
         'xxxsm':"50px",
         "128":"360px"
       },
+      translate:{
+        '0.5':"2px",
+      },
       maxWidth:{
         'xxxsm':"50px"
       },

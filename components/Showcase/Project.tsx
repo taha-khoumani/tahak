@@ -67,7 +67,7 @@ export default function Project({projectData}: Props) {
     let togglerParentStyle = togglerParent.style
     let togglerChildStyle = togglerChild.style
 
-    const togglerAnimationDuration = 300
+    const togglerAnimationDuration = 100
 
     switch(device){
       case 'laptop':
@@ -125,7 +125,7 @@ export default function Project({projectData}: Props) {
     const parent = document.querySelector("#devicesContainer") as HTMLElement
 
     if(!parent.style) return;
-    const imgAnimationDuration = 450
+    const imgAnimationDuration = 200
 
     switch(device){
       case 'laptop':
