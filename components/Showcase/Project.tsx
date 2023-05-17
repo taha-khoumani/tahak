@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-// import techIcons from '@/techData'
 
 type Props = {
   projectData:{
@@ -56,6 +55,55 @@ export default function Project({projectData}: Props) {
       </div>
     )
   })
+
+  function onScroll (direction:string){
+    const navigaterParent = document.querySelector("#devicesGrandContainer") as any
+    const navigater = document.querySelector("#devicesContainer") as HTMLElement
+    const currentPosition = window.getComputedStyle(navigater).right
+    const width = navigaterParent.offsetWidth
+
+    let initialPosition;
+    if(currentPosition === "0px"){
+      initialPosition = "mobile"
+    } else if(currentPosition === `${width}px`){
+      initialPosition = "laptop"
+    } else {
+      initialPosition = "tablet"
+    }
+    console.log(initialPosition)
+
+    let to:"laptop" | 'tablet' | 'mobile';
+                   
+    if(direction === "l"){
+      switch (initialPosition){
+        case "mobile": 
+          to = "laptop"
+        break;
+        case "laptop":
+          to = "tablet"
+        break;
+        case "tablet":
+          to = "tablet"
+        break;
+      }
+    }
+    else{
+      switch (initialPosition){
+        case "mobile": 
+          to = "mobile"
+        break;
+        case "laptop":
+          to = "mobile"
+        break;
+        case "tablet":
+          to = "laptop"
+        break;
+      }
+    }
+
+    setDevice(to)
+
+  }
 
   useEffect(()=>{
     //toggler
@@ -144,6 +192,91 @@ export default function Project({projectData}: Props) {
 
   },[device])
 
+  //mobile scoll
+  useEffect(()=>{
+    // mobile-scrolling-event-listener
+    (function(d) {
+      // based on original source: https://stackoverflow.com/a/17567696/334451
+      var newEvent = function(e, name) {
+          // This style is already deprecated but very well supported in real world: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/initCustomEvent
+          // in future we want to use CustomEvent function: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
+          var a = document.createEvent("CustomEvent");
+          a.initCustomEvent(name, true, true, e.target);
+          e.target.dispatchEvent(a);
+          a = null;
+          return false
+      };
+      var debug = false; // emit info to JS console for all touch events?
+      var active = false; // flag to tell if touchend should complete the gesture
+      var min_gesture_length = 20; // minimum gesture length in pixels
+      var tolerance = 0.3; // value 0 means pixel perfect movement up or down/left or right is required, 0.5 or more means any diagonal will do, values between can be tweaked
+  
+      var sp = { x: 0, y: 0, px: 0, py: 0 }; // start point
+      var ep = { x: 0, y: 0, px: 0, py: 0 }; // end point
+      var touch = {
+          touchstart: function(e) {
+              active = true;
+              var t = e.touches[0];
+              sp = { x: t.screenX, y: t.screenY, px: t.pageX, py: t.pageY };
+              ep = sp; // make sure we have a sensible end poin in case next event is touchend
+              debug && ("start", sp);
+          },
+          touchmove: function(e) {
+              if (e.touches.length > 1) {
+                  active = false;
+                  debug && console.log("aborting gesture because multiple touches detected");
+                  return;
+              }
+              var t = e.touches[0];
+              ep = { x: t.screenX, y: t.screenY, px: t.pageX, py: t.pageY };
+              debug && console.log("move", ep, sp);
+          },
+          touchend: function(e) {
+              if (!active)
+                  return;
+              debug && console.log("end", ep, sp);
+              var dx = Math.abs(ep.x - sp.x);
+              var dy = Math.abs(ep.y - sp.y);
+  
+              if (Math.max(dx, dy) < min_gesture_length) {
+                  debug && console.log("ignoring short gesture");
+                  return; // too short gesture, ignore
+              }
+  
+              if (dy > dx && dx/dy < tolerance && Math.abs(sp.py - ep.py) > min_gesture_length) { // up or down, ignore if page scrolled with touch
+                  newEvent(e, (ep.y - sp.y < 0 ? 'gesture-up' : 'gesture-down'));
+                  //e.cancelable && e.preventDefault();
+              }
+              else if (dx > dy && dy/dx < tolerance && Math.abs(sp.px - ep.px) > min_gesture_length) { // left or right, ignore if page scrolled with touch
+                  newEvent(e, (ep.x - sp.x < 0 ? 'gesture-left' : 'gesture-right'));
+                  //e.cancelable && e.preventDefault();
+              }
+              else {
+                  debug && console.log("ignoring diagonal gesture or scrolled content");
+              }
+              active = false;
+          },
+          touchcancel: function(e) {
+              debug && console.log("cancelling gesture");
+              active = false;
+          }
+      };
+      for (var a in touch) {
+          d.addEventListener(a, touch[a], false);
+          // TODO: MSIE touch support: https://github.com/CamHenlin/TouchPolyfill
+      }
+    })(window.document);
+
+    //config
+    const navigater = document.querySelector("#devicesContainer") as HTMLElement
+  
+    function gestureRightHandler () {onScroll("r")} 
+    function gestureLeftHandler () {onScroll("l")}
+
+    navigater.addEventListener('gesture-right',gestureRightHandler)
+    navigater.addEventListener('gesture-left',gestureLeftHandler)
+  },[device])
+
   return (
     <div 
       style={{backgroundColor:backgroundColor}} 
@@ -195,7 +328,7 @@ export default function Project({projectData}: Props) {
             
             {/* image */}
             <div 
-              className='flex-grow w-full overflow-hidden'>
+              className='flex-grow w-full overflow-hidden' id='devicesGrandContainer'>
               <div className='flex relative h-full w-full' id='devicesContainer'>
                 <div 
                   className='bg-img min-w-full h-full'
@@ -239,7 +372,6 @@ export default function Project({projectData}: Props) {
             </div>
 
           </div>
-
         </div>
       </div>
     </div>

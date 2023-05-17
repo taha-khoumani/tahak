@@ -5,7 +5,6 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <script src="https://kit.fontawesome.com/d2a31f31ee.js" crossOrigin="anonymous"></script>
-        <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
       </Head>
       <body>
         <Main />
