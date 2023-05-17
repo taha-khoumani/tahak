@@ -42,13 +42,6 @@ export default function Project({projectData}: Props) {
     setDevice(device)
   }
 
-  const bg = {
-    backgroundImage:`url(${projectData[device]})`,
-    backgroundSize:'contain',
-    backgroundPosition:'center',
-    backgroundRepeat:'no-repeat',
-  }
-
   const techIcons = techStack.map((tech,index,techs)=>{
     return(
       <div 
@@ -65,68 +58,87 @@ export default function Project({projectData}: Props) {
   })
 
   useEffect(()=>{
+    //toggler
+    const togglerParent = document.querySelector('#togglerParent') as HTMLElement
+    const togglerChild = document.querySelector('#togglerChild') as HTMLElement
+    
+    if(!togglerParent.style) return;
+
+    let togglerParentStyle = togglerParent.style
+    let togglerChildStyle = togglerChild.style
+
+    const togglerAnimationDuration = 300
+
+    switch(device){
+      case 'laptop':
+        //PARENT
+        togglerParent.style.animationName = 'laptopIconP'
+        setTimeout(()=>{
+          togglerParentStyle.left="53px";
+          togglerParentStyle.right="53px"
+        },togglerAnimationDuration)
+
+        //CHILD
+        togglerChild.style.animationName = 'laptopIconC'
+        setTimeout(()=>{
+          togglerChildStyle.right="50px"
+        },togglerAnimationDuration)
+
+        break;
+
+      case 'mobile':
+        // PARENT
+        togglerParent.style.animationName = 'mobileIconP'
+        setTimeout(()=>{
+          togglerParentStyle.left="3px";
+          togglerParentStyle.right="103px"
+        },togglerAnimationDuration)
+
+        //CHILD
+        togglerChild.style.animationName = 'mobileIconC'
+        setTimeout(()=>{
+          togglerChildStyle.right="0px"
+        },togglerAnimationDuration)
+
+        break;
+
+      case 'tablet':
+        // PARENT
+        togglerParent.style.animationName = 'tabletIconP'
+        setTimeout(()=>{
+          togglerParentStyle.left="103px";
+          togglerParentStyle.right="3px"
+        },togglerAnimationDuration)
+
+        //CHILD
+        togglerChild.style.animationName = 'tabletIconC'
+        setTimeout(()=>{
+          togglerChildStyle.right="100px"
+        },togglerAnimationDuration)
+
+        break;
+
+    }
+
+
+    //images
     const parent = document.querySelector("#devicesContainer") as HTMLElement
 
-    //
-    // const currentPosition = window.getComputedStyle(parent).left
-    // const winWidth = parent.innerWidth
-
-    // let initialPosition;
-    // if(currentPosition === "0px"){
-    //   initialPosition = "Planned"
-    // } else if(currentPosition === `-${winWidth}px`){
-    //   initialPosition = "In-Progress"
-    // } else {
-    //   initialPosition = "Live"
-    // }
-
-
-    // let to;
-    // if(direction === "r"){
-    //   switch (initialPosition){
-    //     case "Planned": 
-    //       to = ""
-    //     break;
-    //     case "In-Progress":
-    //       to = "one"
-    //     break;
-    //     case "Live":
-    //       to = "two"
-    //     break;
-    //   }
-    // }
-    // else{
-    //   switch (initialPosition){
-    //     case "Planned": 
-    //       to = "two"
-    //     break;
-    //     case "In-Progress":
-    //       to = "three"
-    //     break;
-    //     case "Live":
-    //       to = ""
-    //     break;
-    //   }
-    // }
-
-    // navigater.style.left = `${currentPosition}`
-    // navigater.style.animationName = `${to}`
-    //
-
     if(!parent.style) return;
-    const animationDuration = 500
+    const imgAnimationDuration = 450
+
     switch(device){
       case 'laptop':
         parent.style.animationName = 'laptop'
-        setTimeout(()=>parent.style.right ='100%',animationDuration)
+        setTimeout(()=>parent.style.right ='100%',imgAnimationDuration)
         break;
       case 'mobile':
         parent.style.animationName = 'mobile'
-        setTimeout(()=>parent.style.right ='0%',animationDuration)
+        setTimeout(()=>parent.style.right ='0%',imgAnimationDuration)
         break;
       case 'tablet':
         parent.style.animationName = 'tablet'
-        setTimeout(()=>parent.style.right ='200%',animationDuration)
+        setTimeout(()=>parent.style.right ='200%',imgAnimationDuration)
         break;
     }
 
@@ -144,22 +156,41 @@ export default function Project({projectData}: Props) {
           <div className='flex flex-col items-center bg-white2 w-full gap-8 p-8 h-128 sm:h-160 lg:flex-grow'>
 
             {/* toggler */}
-            <div className='flex rounded-full border-2 border-purple p-0.75 items-center w-40 h-10' >
-              <i 
-                className="device-icons fa-solid fa-mobile-screen-button" 
-                style={device === 'mobile' ? deviceChosenStyle : {}}    
-                onClick={()=>onDeviceTogglerClickHandler('mobile')}
-              ></i>
-              <i 
-                className="device-icons fa-solid fa-laptop"
-                style={device === 'laptop' ? deviceChosenStyle : {}}
-                onClick={()=>onDeviceTogglerClickHandler('laptop')}
-              ></i>
-              <i 
-                className="device-icons fa-solid fa-tablet-screen-button"
-                style={device === 'tablet' ? deviceChosenStyle : {}}
-                onClick={()=>onDeviceTogglerClickHandler('tablet')}
-              ></i>
+            <div 
+              className='relative rounded-full border-2 border-purple p-0.75 w-40 h-10' 
+            >
+
+              {/* back-icons */}
+              <div className='flex items-center h-full' >
+                  <i 
+                    className="back-device-icons fa-solid fa-mobile-screen-button"   
+                    onClick={()=>onDeviceTogglerClickHandler('mobile')}
+                  ></i>
+                  <i 
+                    className="back-device-icons fa-solid fa-laptop"
+                    onClick={()=>onDeviceTogglerClickHandler('laptop')}
+                  ></i>
+                  <i 
+                    className="back-device-icons fa-solid fa-tablet-screen-button"
+                    onClick={()=>onDeviceTogglerClickHandler('tablet')}
+                  ></i>
+              </div>
+
+              {/* front-icons */}
+              <div className='absolute inset-y-0.75 w-xxxsm inset-x-50 bg-purple rounded-full overflow-hidden' id='togglerParent'> {/* 50px width with purple bg */}
+                <div className='flex items-center h-full relative' id='togglerChild' >
+                  <i 
+                    className="front-device-icons fa-solid fa-mobile-screen-button"  
+                  ></i>
+                  <i 
+                    className="front-device-icons fa-solid fa-laptop"
+                  ></i>
+                  <i 
+                    className="front-device-icons fa-solid fa-tablet-screen-button"
+                  ></i>
+                </div>
+              </div>            
+
             </div>
             
             {/* image */}

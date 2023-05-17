@@ -71,12 +71,12 @@
         .headings{
             @apply text-black font-bold text-2xl mb-2 sm:text-4xl sm:mb-4;
         }
-        .device-icons{
+        .back-device-icons{
             @apply text-purple w-full text-center flex justify-center items-center rounded-full h-full cursor-pointer;
         }
-        .choosen-device-icons{
-            @extend .device-icons;
-            @apply min-w-full text-white2 z-20;
+        .front-device-icons{
+            @extend .back-device-icons;
+            @apply min-w-full text-white z-20;
         }
         .live-github{
             @apply items-center justify-center mx-auto rounded-full font-bold flex gap-3 bg-white2 text-purple py-3 px-6 w-full sm:w-2/3 lg:w-full sm:py-4 sm:px-8 hover:bg-purple hover:text-white2 transition;
@@ -149,27 +149,62 @@
             animation-fill-mode: forwards;
             animation-duration: 450ms;
             @keyframes mobile {
-                // 0%{
-                //     right:;
-                // } 
                 100%{
                     right:0px;
                 }
             }
             @keyframes laptop {
-                // 0%{
-                //     right:;
-                // } 
                 100%{
                     right:100%;
                 }
             }
-            @keyframes tablet {
-                // 0%{
-                //     right:;
-                // } 
+            @keyframes tablet { 
                 100%{
                     right:200%;
+                }
+            }
+        }
+    // 
+
+    // TOGGLER
+        #togglerParent{
+            animation-fill-mode: forwards;
+            animation-duration: 300ms;
+            @keyframes laptopIconP {
+                100%{
+                    left:53px;
+                    right:53px;
+                }
+            }
+            @keyframes mobileIconP {
+                100%{
+                    left:3px;
+                    right:103px;
+                }
+            }
+            @keyframes tabletIconP { 
+                100%{
+                    left:103px;
+                    right:3px;
+                }
+            }
+        }
+        #togglerChild{
+            animation-fill-mode: forwards;
+            animation-duration: 300ms;
+            @keyframes laptopIconC {
+                100%{
+                    right:50px;
+                }
+            }
+            @keyframes mobileIconC {
+                100%{
+                    right:0px;
+                }
+            }
+            @keyframes tabletIconC { 
+                100%{
+                    right:100px;
                 }
             }
         }

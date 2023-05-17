@@ -23,6 +23,11 @@ module.exports = {
       maxWidth:{
         'xxxsm':"50px"
       },
+      inset:{
+        "0.75":"3px",
+        "50":"50px",
+
+      },
       padding:{
         "0.75":"3px",
       },
