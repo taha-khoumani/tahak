@@ -129,7 +129,7 @@ body {
   }
 }
 
-#devicesContainer {
+.devicesContainer {
   animation-fill-mode: forwards;
   animation-duration: 200ms;
 }
@@ -149,7 +149,7 @@ body {
   }
 }
 
-#togglerParent {
+.togglerParent {
   animation-fill-mode: forwards;
   animation-duration: 100ms;
 }
@@ -172,7 +172,7 @@ body {
   }
 }
 
-#togglerChild {
+.togglerChild {
   animation-fill-mode: forwards;
   animation-duration: 100ms;
 }

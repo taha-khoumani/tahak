@@ -57,8 +57,8 @@ export default function Project({projectData}: Props) {
   })
 
   function onScroll (direction:string){
-    const navigaterParent = document.querySelector("#devicesGrandContainer") as any
-    const navigater = document.querySelector("#devicesContainer") as HTMLElement
+    const navigaterParent = document.querySelector(`#devicesGrandContainer${id}`) as any
+    const navigater = document.querySelector(`#devicesContainer${id}`) as HTMLElement
     const currentPosition = window.getComputedStyle(navigater).right
     const width = navigaterParent.offsetWidth
 
@@ -106,8 +106,8 @@ export default function Project({projectData}: Props) {
 
   useEffect(()=>{
     //toggler
-    const togglerParent = document.querySelector('#togglerParent') as HTMLElement
-    const togglerChild = document.querySelector('#togglerChild') as HTMLElement
+    const togglerParent = document.querySelector(`#togglerParent${id}`) as HTMLElement
+    const togglerChild = document.querySelector(`#togglerChild${id}`) as HTMLElement
     
     if(!togglerParent.style) return;
 
@@ -169,7 +169,7 @@ export default function Project({projectData}: Props) {
 
 
     //images
-    const parent = document.querySelector("#devicesContainer") as HTMLElement
+    const parent = document.querySelector(`#devicesContainer${id}`) as HTMLElement
 
     if(!parent.style) return;
     const imgAnimationDuration = 200
@@ -267,7 +267,7 @@ export default function Project({projectData}: Props) {
     })(window.document);
 
     //config
-    const navigater = document.querySelector("#devicesGrandContainer") as HTMLElement
+    const navigater = document.querySelector(`#devicesGrandContainer${id}`) as HTMLElement
   
     function gestureRightHandler () {onScroll("r")} 
     function gestureLeftHandler () {onScroll("l")}
@@ -278,7 +278,7 @@ export default function Project({projectData}: Props) {
 
   return (
     <div 
-      style={{backgroundColor:backgroundColor}} 
+      style={{background:backgroundColor}} 
       className='w-full'
     >
       <div className='general-margins py-10 sm:py-32'>
@@ -290,7 +290,6 @@ export default function Project({projectData}: Props) {
             {/* toggler */}
             <div 
               className='relative rounded-full border-2 border-purple p-0.75 w-40 h-10' 
-              onClick={(e)=>{e.stopPropagation();console.log(e)}}
             >
 
               {/* back-icons */}
@@ -310,8 +309,8 @@ export default function Project({projectData}: Props) {
               </div>
 
               {/* front-icons */}
-              <div className='absolute inset-y-0.75 w-xxxsm inset-x-50 bg-purple rounded-full overflow-hidden' id='togglerParent'> {/* 50px width with purple bg */}
-                <div className='flex items-center h-full relative' id='togglerChild' >
+              <div className='absolute inset-y-0.75 w-xxxsm inset-x-50 bg-purple rounded-full overflow-hidden togglerParent' id={`togglerParent${id}`}> {/* 50px width with purple bg */}
+                <div className='flex items-center h-full relative togglerChild' id={`togglerChild${id}`} >
                   <i 
                     className="front-device-icons fa-solid fa-mobile-screen-button"  
                   ></i>
@@ -328,8 +327,8 @@ export default function Project({projectData}: Props) {
             
             {/* image */}
             <div 
-              className='flex-grow w-full overflow-hidden' id='devicesGrandContainer'>
-              <div className='flex relative h-full w-full' id='devicesContainer'>
+              className='flex-grow w-full overflow-hidden' id={`devicesGrandContainer${id}`}>
+              <div className='flex relative h-full w-full devicesContainer' id={`devicesContainer${id}`}>
                 <div 
                   className='bg-img min-w-full h-full'
                   style={{backgroundImage:`url(${mobile})`}}

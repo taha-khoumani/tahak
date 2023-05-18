@@ -19,4 +19,48 @@ export default [
             'reactRouter'
         ],
     },
+    {
+        id:1,
+        backgroundColor:"linear-gradient(160.97deg, #56B7F3 0%, #A838EF 55.73%, #EA888A 100%)", //linear gradient
+        frontgroundColor:"#384068",
+        title:"Feedback App",
+        description:"A full-stack web application designed to give users a seamless way to provide feedback on audiophile. Powered by MongoDB, the database allows for efficient and secure storage of user data. The app also utilizes NextAuth for authentication and login functionality.",
+        mobile:"/projects/feedback/mobile.png",
+        tablet:"/projects/feedback/tablet.png",
+        laptop:"/projects/feedback/pc.png",
+        live:"https://feedback-app-taha-khoumani.vercel.app/",
+        github:"https://github.com/taha-khoumani/feedbackApp",
+        techStack:[
+            'next',
+            'mongodb',
+            'nextAuth',
+            'react',
+            "sass",
+            'redux',
+            'js',
+            "html",
+        ],
+    },
+    {
+        id:2,
+        backgroundColor:"#7C5DFA", //linear gradient
+        frontgroundColor:"#373B53",
+        title:"Invoice  App ",
+        description:'A cutting-edge invoicing web application built with modern technology. This full-stack app was developed with TypeScript, providing a more efficient and error-free codebase. Authentication and login functionality are powered by Google, making it secure and easy to use.',
+        mobile:"/projects/invoice/mobile.png",
+        tablet:"/projects/invoice/tablet.png",
+        laptop:"/projects/invoice/pc.png",
+        live:"https://invoice-app-taha-khoumani.vercel.app/",
+        github:"https://github.com/taha-khoumani/invoice_app",
+        techStack:[
+            'ts',
+            'nextAuth',
+            'mongodb',
+            'next',
+            'react',
+            "sass",
+            'redux',
+            "html",
+        ],
+    },
 ]
