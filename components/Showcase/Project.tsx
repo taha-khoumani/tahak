@@ -70,7 +70,6 @@ export default function Project({projectData}: Props) {
     } else {
       initialPosition = "tablet"
     }
-    console.log(initialPosition)
 
     let to:"laptop" | 'tablet' | 'mobile';
                    
@@ -268,7 +267,7 @@ export default function Project({projectData}: Props) {
     })(window.document);
 
     //config
-    const navigater = document.querySelector("#devicesContainer") as HTMLElement
+    const navigater = document.querySelector("#devicesGrandContainer") as HTMLElement
   
     function gestureRightHandler () {onScroll("r")} 
     function gestureLeftHandler () {onScroll("l")}
@@ -286,11 +285,12 @@ export default function Project({projectData}: Props) {
         <div className='flex rounded-2xl overflow-hidden flex-col lg:flex-row ' >
 
           {/* devices */}
-          <div className='flex flex-col items-center bg-white2 w-full gap-8 p-8 h-128 sm:h-160 lg:flex-grow'>
+          <div className='flex flex-col items-center bg-white2 w-full gap-8 p-8 h-128 sm:h-160 lg:flex-grow' id='devices'>
 
             {/* toggler */}
             <div 
               className='relative rounded-full border-2 border-purple p-0.75 w-40 h-10' 
+              onClick={(e)=>{e.stopPropagation();console.log(e)}}
             >
 
               {/* back-icons */}

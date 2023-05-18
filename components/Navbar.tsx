@@ -9,11 +9,10 @@ export default function Navbar({}: Props) {
 
 
   function toggleMenuState(){
-    toggleMenuUI(!isMenuOpen)
+    toggleMenuUI(isMenuOpen)
     toggleMenu((prev)=>!prev)
   }
   function toggleMenuUI(state:boolean){
-    console.log('runed')
     let menuParent = document.getElementById('menuParent')
     let menuChild = document.getElementById('menuChild')
     if(!menuParent || !menuChild) return;
