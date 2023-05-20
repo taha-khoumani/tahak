@@ -1,13 +1,54 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+import { NextApiRequest, NextApiResponse } from "next";
+import Error from "next/error";
 
-type Data = {
-  name: string
+interface ExtendedNextApiRequest extends NextApiRequest {
+  body: {
+    email:string,
+    message:string,
+  };
 }
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  res.status(200).json({ name: 'John Doe' })
+export default async function handler (req:ExtendedNextApiRequest,res:NextApiResponse){
+  if(req.method !== 'POST'){
+      res.status(405).json({status:405,message:'This is suposed to be a POST request.'})
+      return null;
+  }
+
+
+  const {email,message} = req.body
+
+  // //check if the data is valid
+  // if(verifyComment(commentData).status === 'error'){
+  //     res.status(400).json({status:400,message:verifyComment(commentData).message})
+  //     return null;
+  // }
+
+  var nodemailer = require('nodemailer');
+
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'khoumanitaha23@gmail.com',
+      pass: 'canadapro23'
+    }
+  });
+
+  var mailOptions = {
+    from: 'khoumanitaha23@gmail.com',
+    to: 'khoumanitaha23@gmail.com',
+    subject: `${email} sent you an email from your portfolio.`,
+    text: message
+  };
+
+  transporter.sendMail(mailOptions, function(error:Error, info:{response:string}){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+    
+
+
+  res.status(200).json({status:200,message:'message sent succesefully'})
 }

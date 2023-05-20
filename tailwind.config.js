@@ -16,19 +16,22 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       height:{
+        '1px':'1px',
         "128":"400px",
         "160":"500px",
         "192":"525px",
       },
       width:{
         'xxxsm':"50px",
-        "128":"360px"
+        "128":"360px",
+        "160":"568px"
       },
       translate:{
         '0.5':"2px",
       },
       maxWidth:{
-        'xxxsm':"50px"
+        'xxxsm':"50px",
+        "160":"568px"
       },
       inset:{
         "0.75":"3px",
@@ -43,7 +46,7 @@ module.exports = {
         'black': '#111C37',
         'turk1':'#3C9DE8',
         'blue1':'#416CD2',
-        'white1':'#FFFEFE',
+        'white1':'#F8F7F7',
         'white2': '#FFFFFF'
       },
     },
