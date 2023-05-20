@@ -285,7 +285,7 @@ export default function Project({projectData}: Props) {
         <div className='flex rounded-2xl overflow-hidden flex-col lg:flex-row ' >
 
           {/* devices */}
-          <div className='flex flex-col items-center bg-white2 w-full gap-8 p-8 h-128 sm:h-160 lg:flex-grow' id='devices'>
+          <div className='flex flex-col items-center bg-white2 w-full gap-8 p-8 h-128 sm:h-160 lg:h-192  lg:flex-grow' id='devices'>
 
             {/* toggler */}
             <div 
@@ -350,7 +350,7 @@ export default function Project({projectData}: Props) {
           <div className='flex flex-col lg:flex-row' style={{backgroundColor:frontgroundColor}} >
 
             {/* title-desciption-links */}
-            <div className='flex flex-col py-8 px-6 gap-6 lg:gap-4 sm:py-10 sm:px-16 lg:px-11 lg:pt-6 lg:pb-10 lg:w-80 text-center'>
+            <div className='flex justify-between flex-col py-8 px-6 gap-6 lg:gap-4 sm:py-10 sm:px-16 lg:px-11 lg:pt-6 lg:pb-10 lg:w-80 text-center'>
               <p className='text-white2 font-bold text-2xl sm:text-3xl' >{title}</p>
               <p className='text-white2 text-sm sm:text-base' >{description}</p>
               <div>

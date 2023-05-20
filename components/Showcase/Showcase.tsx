@@ -10,7 +10,7 @@ export default function Showcase({}: Props) {
   )
 
   return (
-    <div>
+    <div id='websites'>
         <div className='general-margins text-center mb-10 sm:mb-20'>
             <h2 className='headings'>Portfolio Showcase</h2>
             <p className='sub-headings'>Check Out These Impressive Websites I've Built!</p>

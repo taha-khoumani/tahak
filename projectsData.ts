@@ -43,7 +43,7 @@ export default [
     },
     {
         id:2,
-        backgroundColor:"#7C5DFA", //linear gradient
+        backgroundColor:"#7C5DFA",
         frontgroundColor:"#373B53",
         title:"Invoice  App ",
         description:'A cutting-edge invoicing web application built with modern technology. This full-stack app was developed with TypeScript, providing a more efficient and error-free codebase. Authentication and login functionality are powered by Google, making it secure and easy to use.',

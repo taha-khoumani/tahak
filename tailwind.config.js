@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens:{
+        'mid':'850px'
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -15,6 +18,7 @@ module.exports = {
       height:{
         "128":"400px",
         "160":"500px",
+        "192":"525px",
       },
       width:{
         'xxxsm':"50px",

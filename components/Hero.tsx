@@ -1,8 +1,11 @@
+import { scrollTo } from '@/lib/helpers';
 import React from 'react'
+
 
 type Props = {}
 
 export default function Hero({}: Props) {
+
   return (
     <div className='flex flex-col gap-10 mx-4 sm:mx-16 lg:mx-24 lg:flex-row'> 
         <div className='mx-auto sm:text-center sm:mx-0 lg:text-left'>
@@ -18,7 +21,10 @@ export default function Hero({}: Props) {
                 <span className='myname font-bold'> Taha K</span>
                 , a front-end developer dedicated <br /> to creating appealing and functional websites that stand out. <br />  Let's work together to turn your project ideas into reality!
             </p>
-            <button className='btn gap-5 mr-auto mini-button-text w-full sm:w-80 sm:mx-auto lg:mx-0' >
+            <button 
+                className='btn gap-5 mr-auto mini-button-text w-full sm:w-80 sm:mx-auto lg:mx-0' 
+                onClick={()=>scrollTo('showcase')}
+            >
                 <span>Explore my projects</span>
                 <i className="fa-regular fa-circle-down text-lg items-baseline"></i>
             </button>
