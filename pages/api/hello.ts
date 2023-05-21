@@ -28,15 +28,15 @@ export default async function handler (req:ExtendedNextApiRequest,res:NextApiRes
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'khoumanitaha23@gmail.com',
-      pass: 'canadapro23'
+      user: 'khoumanitaha25@gmail.com',
+      pass: 'adlmobzinusmswnu'
     }
   });
 
   var mailOptions = {
-    from: 'khoumanitaha23@gmail.com',
+    from: 'khoumanitaha25@gmail.com',
     to: 'khoumanitaha23@gmail.com',
-    subject: `${email} sent you an email from your portfolio.`,
+    subject: `XXX PORTFOLIO-EMAIL:IMPORTANT: "${email}" sent you an email from your portfolio. XXX`,
     text: message
   };
 
