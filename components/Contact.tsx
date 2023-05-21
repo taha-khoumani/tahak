@@ -83,7 +83,8 @@ export default function Contact({}: Props) {
                   onInput={onInputHandler} 
                   name='email' 
                   className='input' 
-                  type="text" 
+                  required
+                  type="email" 
                   value={formData.email}
                 />
               </div>
@@ -95,6 +96,7 @@ export default function Contact({}: Props) {
                   rows={3}
                   onInput={onInputHandler}
                   name='message'
+                  required
                   value={formData.message}
                 />
               </div>   
@@ -130,3 +132,18 @@ export default function Contact({}: Props) {
     </>
   )
 }
+
+/*
+
+            onClick={()=>{
+              if(document.querySelector("#checkout-form").checkValidity())
+                animateModal()
+              else
+                styleErrors()
+                styleErrorsSelect(document.querySelector("select"))
+                styleErrorsRadio()
+            }}
+
+
+
+*/

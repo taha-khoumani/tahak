@@ -14,14 +14,7 @@ export default async function handler (req:ExtendedNextApiRequest,res:NextApiRes
       return null;
   }
 
-
   const {email,message} = req.body
-
-  // //check if the data is valid
-  // if(verifyComment(commentData).status === 'error'){
-  //     res.status(400).json({status:400,message:verifyComment(commentData).message})
-  //     return null;
-  // }
 
   var nodemailer = require('nodemailer');
 
