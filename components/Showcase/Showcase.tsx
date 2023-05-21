@@ -1,11 +1,11 @@
 import React from 'react'
 import Project from './Project'
-import projectsData from "@/projectsData"
+import projectsData from "@/lib/data"
 
 type Props = {}
 
 export default function Showcase({}: Props) {
-  const Projects = projectsData.map(
+  const Projects = projectsData.projects.map(
     project=> <Project projectData={project} key={project.id} /> 
   )
 

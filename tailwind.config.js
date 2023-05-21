@@ -7,7 +7,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      boxShadow:{
+        '3xl':'box-shadow: 0px 5.32008px 4.25607px rgba(0, 0, 0, 0.137324);'
+      },
       screens:{
+        'xs':'441px',
         'mid':'850px'
       },
       backgroundImage: {
@@ -40,6 +44,7 @@ module.exports = {
       },
       padding:{
         "0.75":"3px",
+        '4.5':'18px',
       },
       colors:{
         'purple':'#603ADE',

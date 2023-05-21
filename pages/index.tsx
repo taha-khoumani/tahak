@@ -1,7 +1,7 @@
 import Contact from "@/components/Contact"
 import Hero from "@/components/Hero"
 import Navbar from "@/components/Navbar"
-import Notification from "@/components/Notification"
+import TechStack from "@/components/TechStack"
 import Separator from "@/components/Separator"
 import Showcase from "@/components/Showcase/Showcase"
 import Head from "next/head"
@@ -20,6 +20,7 @@ export default function Home() {
       <Hero />
       <Separator />
       <Showcase />
+      <TechStack />
       <Separator />
       <Contact />
     </div>
