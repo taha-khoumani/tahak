@@ -40,6 +40,7 @@ module.exports = {
       },
       maxWidth:{
         'xxxsm':"50px",
+        '9':'36px',
         "160":"568px"
       },
       inset:{
@@ -58,7 +59,10 @@ module.exports = {
         'blue1':'#416CD2',
         'white1':'#F8F7F7',
         'white2': '#FFFFFF',
-        'linkBlue':'#0000EE'
+        'linkBlue':'#0000EE',
+        'linkedinBlue':'#0A66C2',
+        'github':'#181717',
+        'twitter':'#1DA1F2',
       },
     },
     

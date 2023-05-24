@@ -1,8 +1,7 @@
 import { scrollTo } from "@/lib/helpers"
 import logo from "@/public/tahak.png"
 import Image from 'next/image'
-import React, { SyntheticEvent, useEffect, useRef, useState } from 'react'
-import { EventEmitter } from "stream"
+import React, { useState } from 'react'
 
 type Props = {}
 

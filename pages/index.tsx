@@ -8,6 +8,7 @@ import Head from "next/head"
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
+import Footer from "@/components/Footer"
 
 export default function Home() {
   
@@ -23,6 +24,7 @@ export default function Home() {
       <TechStack />
       <Separator />
       <Contact />
+      <Footer />
     </div>
   )
 }
