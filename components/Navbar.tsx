@@ -9,7 +9,9 @@ type Props = {}
 export default function Navbar({}: Props) {
   const [isMenuOpen,toggleMenu] = useState(false)
 
-
+  function takeToContact(){
+    scrollTo('contact')
+  }
 
   function toggleMenuState(){
     toggleMenuUI(isMenuOpen)
@@ -63,7 +65,7 @@ export default function Navbar({}: Props) {
           </div>
         
         {/* all */}
-          <button className="btn gap-3 py-2 px-4 lg:px-5" >
+          <button className="btn gap-3 py-2 px-4 lg:px-5" onClick={takeToContact} >
               <span className="hidden sm:inline font-medium">Let’s network</span>
               <i className="fa-regular fa-comments text-lg "></i>
           </button>

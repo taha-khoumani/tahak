@@ -48,7 +48,7 @@ export default function Project({projectData}: Props) {
         key={index}
         >
         <div 
-          style={{backgroundImage:`url(/icons/${tech}.svg)`}}
+          style={{backgroundImage:`url(/techStack/icons/${tech}.svg)`}}
           className='techIcon w-4 h-4 sm:w-6 sm:h-6'
         >
         </div>

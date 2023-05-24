@@ -1,17 +1,77 @@
 export default {
     techStack:[
-        'ts',
-        'react',
-        'mongodb',
-        'css',
-        'js',
-        'next',
-        'sass',
-        'redux',
-        'nextAuth',
-        'reactRouter',
-        'html',
-        'tailwind'
+        {
+            name:'ts',
+            title:'TS',
+            description:'Typed JavaScript for stronger code.',
+            link:'https://www.typescriptlang.org/',
+        },
+        {
+            name:'react',
+            title:'React',
+            description:'JS library for building user interfaces.',
+            link:'https://react.dev/',
+        },
+        {
+            name:'mongodb',
+            title:'MongoDB',
+            description:'Scalable NoSQL database for flexible data storage.',
+            link:'https://www.mongodb.com/',
+        },
+        {
+            name:'css',
+            title:'CSS',
+            description:'Styling language for HTML documents.',
+            link:'https://developer.mozilla.org/en-US/docs/Web/CSS',
+        },
+        {
+            name:'js',
+            title:'JS',
+            description:'Dynamic scripting language for web development.',
+            link:'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+        },
+        {
+            name:'next',
+            title:'Next.js',
+            description:'React framework for server-side rendering.',
+            link:'https://nextjs.org/',
+        },
+        {
+            name:'sass',
+            title:'SASS',
+            description:'Advanced CSS preprocessor for efficient styling.',
+            link:'https://sass-lang.com/',
+        },
+        {
+            name:'redux',
+            title:'Redux',
+            description:'Predictable state management library for JavaScript apps',
+            link:'https://redux.js.org/',
+        },
+        {
+            name:'nextAuth',
+            title:'Next Auth',
+            description:'Next.js auth library with provider integration.',
+            link:'https://next-auth.js.org/',
+        },
+        {
+            name:'reactRouter',
+            title:'React Router',
+            description:'Routing library for declarative routing in React apps.',
+            link:'https://reactrouter.com/en/main',
+        },
+        {
+            name:'html',
+            title:'HTML',
+            description:'Standard language for web content structure and display.',
+            link:'https://developer.mozilla.org/en-US/docs/Web/HTML',
+        },
+        {
+            name:'tailwind',
+            title:'Tailwindcss',
+            description:'Highly customizable utility-first CSS framework.',
+            link:'https://tailwindcss.com/',
+        },
     ],
     projects:[
         {

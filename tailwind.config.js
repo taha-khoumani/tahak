@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+     fontSize:{
+        'xxxs':'10px',
+        'xxs':'11px'
+      },
       boxShadow:{
         '3xl':'box-shadow: 0px 5.32008px 4.25607px rgba(0, 0, 0, 0.137324);'
       },
@@ -27,6 +31,7 @@ module.exports = {
       },
       width:{
         'xxxsm':"50px",
+        'xxsm':'263px',
         "128":"360px",
         "160":"568px"
       },
@@ -52,7 +57,8 @@ module.exports = {
         'turk1':'#3C9DE8',
         'blue1':'#416CD2',
         'white1':'#F8F7F7',
-        'white2': '#FFFFFF'
+        'white2': '#FFFFFF',
+        'linkBlue':'#0000EE'
       },
     },
     

@@ -6,7 +6,7 @@ type Props = {}
 
 export default function TechStack({}: Props) {
 
-  const technologies = data.techStack.map(tech=><SingleTech tech={tech} />)
+  const technologies = data.techStack.map(tech=><SingleTech techData={tech} key={tech.name} />)
 
   return (
     <div className='general-margins flex flex-col items-center gap-10 sm:gap-14'>
