@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { SyntheticEvent, useEffect, useState } from 'react'
 
 type Props = {
   projectData:{
@@ -70,37 +70,37 @@ export default function Project({projectData}: Props) {
     } else {
       initialPosition = "tablet"
     }
-
-    let to:"laptop" | 'tablet' | 'mobile';
+   
+    let destination:"laptop" | 'tablet' | 'mobile' = 'laptop';
                    
     if(direction === "l"){
       switch (initialPosition){
         case "mobile": 
-          to = "laptop"
+          destination = "laptop"
         break;
         case "laptop":
-          to = "tablet"
+          destination = "tablet"
         break;
         case "tablet":
-          to = "tablet"
+          destination = "tablet"
         break;
       }
     }
     else{
       switch (initialPosition){
         case "mobile": 
-          to = "mobile"
+          destination = "mobile"
         break;
         case "laptop":
-          to = "mobile"
+          destination = "mobile"
         break;
         case "tablet":
-          to = "laptop"
+          destination = "laptop"
         break;
       }
     }
 
-    setDevice(to)
+    setDevice(destination)
 
   }
 
@@ -196,7 +196,7 @@ export default function Project({projectData}: Props) {
     // mobile-scrolling-event-listener
     (function(d) {
       // based on original source: https://stackoverflow.com/a/17567696/334451
-      var newEvent = function(e, name) {
+      var newEvent = function(e:SyntheticEvent, name:string) {
           // This style is already deprecated but very well supported in real world: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/initCustomEvent
           // in future we want to use CustomEvent function: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
           var a = document.createEvent("CustomEvent");
@@ -220,7 +220,7 @@ export default function Project({projectData}: Props) {
               ep = sp; // make sure we have a sensible end poin in case next event is touchend
               debug && ("start", sp);
           },
-          touchmove: function(e) {
+          touchmove: function(e:TouchEvent) {
               if (e.touches.length > 1) {
                   active = false;
                   debug && console.log("aborting gesture because multiple touches detected");
