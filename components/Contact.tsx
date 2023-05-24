@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react'
 import Notification from './Notification';
+import { nanoid } from 'nanoid';
 
 type Props = {}
 
@@ -41,7 +42,7 @@ export default function Contact({}: Props) {
     })
     const jsonResult = await result.json()
 
-    const notif = <Notification/>
+    const notif = <Notification key={nanoid()} />
     setAllNotification(prev=>[...prev,notif])
     setTimeout(()=>setAllNotification(prev=> prev.slice(0,-1)),6000)
   }
@@ -132,18 +133,3 @@ export default function Contact({}: Props) {
     </>
   )
 }
-
-/*
-
-            onClick={()=>{
-              if(document.querySelector("#checkout-form").checkValidity())
-                animateModal()
-              else
-                styleErrors()
-                styleErrorsSelect(document.querySelector("select"))
-                styleErrorsRadio()
-            }}
-
-
-
-*/

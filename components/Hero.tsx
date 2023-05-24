@@ -7,9 +7,9 @@ type Props = {}
 export default function Hero({}: Props) {
 
   return (
-    <div className='flex flex-col gap-10 mx-4 sm:mx-16 lg:mx-24 lg:flex-row'> 
+    <div className='flex flex-col gap-10 mx-4 sm:mx-16 lg:mx-24 lg:flex-row lg:justify-around'> 
         <div className='mx-auto sm:text-center sm:mx-0 lg:text-left'>
-            <h1 className='text-black font-bold text-2xl xs:text-4xl mb-4 sm:text-5xl sm:mb-6 lg:mb-8 whitespace-nowrap' >
+            <h1 className='text-black font-bold text-2xl xs:text-4xl mb-4 sm:text-5xl sm:mb-6 lg:mb-8 whitespace-nowrap lg:text-5.5xlxl lg2:text-6xl' >
                 Transforming Project 
                 <br/>
                 <span className='text-turk1' > Ideas</span>  into Functional 
@@ -29,7 +29,7 @@ export default function Hero({}: Props) {
                 <i className="fa-regular fa-circle-down text-lg items-baseline"></i>
             </button>
         </div>
-        <div className='hero-img mx-auto w-full h-80 lg:my-auto lg:w-auto lg:flex-grow lg:self-stretch'></div>
+        <div className='hero-img mx-auto w-full h-80 lg:my-auto lg:w-auto lg:self-stretch lg:bg-right lg:aspect-square lg:mx-0'></div>
     </div>
   )
 }

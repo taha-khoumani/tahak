@@ -9,6 +9,7 @@ module.exports = {
     extend: {
      fontSize:{
         'xxxs':'10px',
+        '5.5xl':'57px',
         'xxs':'11px'
       },
       boxShadow:{
@@ -16,7 +17,8 @@ module.exports = {
       },
       screens:{
         'xs':'441px',
-        'mid':'850px'
+        'mid':'850px',
+        'lg2':'1250px',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

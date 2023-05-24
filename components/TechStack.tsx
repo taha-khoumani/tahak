@@ -9,7 +9,7 @@ export default function TechStack({}: Props) {
   const technologies = data.techStack.map(tech=><SingleTech techData={tech} key={tech.name} />)
 
   return (
-    <div className='general-margins flex flex-col items-center gap-10 sm:gap-14'>
+    <div className='general-margins flex flex-col items-center gap-10 sm:gap-14' id='techStack'>
       <div className='text-center' >
         <h2 className='headings' >My Tech Stack</h2>
         <p className='sub-headings'>Cutting-Edge Tools and Technologies</p>
