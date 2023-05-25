@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useEffect, useState } from 'react'
+import React, { SyntheticEvent, TouchEventHandler, useEffect, useState } from 'react'
 
 type Props = {
   projectData:{
@@ -199,7 +199,7 @@ export default function Project({projectData}: Props) {
       var newEvent = function(e:SyntheticEvent, name:string) {
           // This style is already deprecated but very well supported in real world: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/initCustomEvent
           // in future we want to use CustomEvent function: https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
-          var a = document.createEvent("CustomEvent");
+          var a: null | CustomEvent<any> = document.createEvent("CustomEvent");
           a.initCustomEvent(name, true, true, e.target);
           e.target.dispatchEvent(a);
           a = null;
@@ -213,12 +213,12 @@ export default function Project({projectData}: Props) {
       var sp = { x: 0, y: 0, px: 0, py: 0 }; // start point
       var ep = { x: 0, y: 0, px: 0, py: 0 }; // end point
       var touch = {
-          touchstart: function(e) {
+          touchstart: function(e:TouchEvent) {
               active = true;
               var t = e.touches[0];
               sp = { x: t.screenX, y: t.screenY, px: t.pageX, py: t.pageY };
               ep = sp; // make sure we have a sensible end poin in case next event is touchend
-              debug && ("start", sp);
+              debug && sp;
           },
           touchmove: function(e:TouchEvent) {
               if (e.touches.length > 1) {
@@ -230,7 +230,7 @@ export default function Project({projectData}: Props) {
               ep = { x: t.screenX, y: t.screenY, px: t.pageX, py: t.pageY };
               debug && console.log("move", ep, sp);
           },
-          touchend: function(e) {
+          touchend: function(e:SyntheticEvent) {
               if (!active)
                   return;
               debug && console.log("end", ep, sp);
@@ -255,13 +255,14 @@ export default function Project({projectData}: Props) {
               }
               active = false;
           },
-          touchcancel: function(e) {
+          touchcancel: function(e:TouchEvent) {
               debug && console.log("cancelling gesture");
               active = false;
           }
       };
       for (var a in touch) {
-          d.addEventListener(a, touch[a], false);
+        // @ts-ignore
+            d.addEventListener(a, touch[a], false);
           // TODO: MSIE touch support: https://github.com/CamHenlin/TouchPolyfill
       }
     })(window.document);
